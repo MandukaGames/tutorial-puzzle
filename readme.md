@@ -1,5 +1,8 @@
 #Creando un puzzle con cocos2dx v3 C++
 
+##Sobre Manduka
+_[Manduka Games](http://www.mandukagames.com) es un estudio de videojuegos con base en Barcelona. Desde nuestros inicios nos hemos planteado hacer un esfuerzo extra para abrir código y formar parte activa de la comunidad Open Source. Nos gusta comentar que llevamos la filosofía Open Source en nuestro adn, por ello el presente tutorial se distribuye bajo licencia MIT. Animamos a todos los que quieran contribuir a enviarnos sus variantes o ampliaciones, las cuales nos comprometemos a incluír y publicitar._
+
 _En éste tutorial vamos a crear desde cero un juego que consiste en crear un puzzle. Nuestro puzzle tendrá cuatro piezas, pero si te gusta cómo funciona y te sientes con ganas de experimentar podrías extenderlo y agregarle más piezas (o más elementos de gamificación!). Simplemente haznos saber tus impresiones y cómo te ha ayudado a construir tu propio juego._
 
 ## Entorno de desarrollo

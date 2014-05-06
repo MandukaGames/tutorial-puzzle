@@ -8,19 +8,17 @@ La nueva versión 3.0 de cocos2d-x ha supuesto un paso enorme en el desarrollo d
 
 En éste tutorial daremos por supuesto que ya te has descargado cocos 2dx a tu ordenador y has instalado la nueva _console tool_. Si no es así te recomendamos que te pases por el  [github oficial](https://github.com/cocos2d/cocos2d-x) de cocos2d-x. Allí encontrarás todo lo que necesitas.
 
-Por último, para el desarrollo de éste tutorial usaremos la última versión de OS X y por comodidad compilaremos el juego directamente para mac, pero todo lo que hacemos será compatible con otros sistemas operativos, __incluídos iOS y Android__. 
+Para el desarrollo de éste tutorial usaremos la última versión de OS X (10.9.2) y por comodidad compilaremos el juego directamente para mac, pero todo lo que hacemos será compatible con otros sistemas operativos, __incluídos iOS y Android__. 
 
 ¡Manos a la obra!
 
 ##Creando un nuevo proyecto con Cocos2dx v3
 
-Lo primero que debemos hacer es crear un nuevo proyecto. En éste caso yo lo crearé en el escritorio. Así que abre el terminal y crea un nuevo proyecto con la console tool cocos. 
+Lo primero que debemos hacer es crear un nuevo proyecto. En éste caso yo lo crearé en el escritorio. Abre el terminal y crea un nuevo proyecto con la console tool de cocos. 
 
-_A continuación te dejamos como ejemplo la salida de nuestra consola_:
-
-	Rubens-MacBook-Pro:bin Vot$ cocos new PuzzleTutorial -p com.mandukagames.puzzle -l cpp -d /Users/Ruben/Desktop 
+	MacBook-Pro:bin Ruben$ cocos new PuzzleTutorial -p com.mandukagames.puzzle -l cpp -d /Users/Ruben/Desktop 
 	Runing command: new
-	> Copy template into /Users/Vot/Desktop/PuzzleTutorial
+	> Copy template into /Users/Ruben/Desktop/PuzzleTutorial
 	> Copying cocos2d-x files...
 	> Rename project name from 'HelloCpp' to 'PuzzleTutorial'
 	> Replace the project name from 'HelloCpp' to 'PuzzleTutorial'
@@ -28,26 +26,31 @@ _A continuación te dejamos como ejemplo la salida de nuestra consola_:
 
 Si todo ha ido bien en tu escritorio deberías tener un nuevo proyecto de Cocos2d-x llamado "PuzzleTutorial". Ahora simplemente vete a la carpeta _proj.ios_mac_ y abre el archivo _PuzzleTutorial.xcodeproj_
 
-![Imagen001](Link.png)
+![](https://cloud.githubusercontent.com/assets/1536171/2887204/93b59e02-d4f7-11e3-88ff-688ccb4e48a3.png)
 
-La mejor forma de probar que todo ha ido bien es ejecutar el proyecto por primera vez. Así que al lado de los botones play-stop selecciona el target _PuzzleTutorial Mac_ y hazlo correr en _My Mac_. Se abrirá una nueva ventana de OSX ejecutando el código base de cocos2dx. 
 
-![Imagen002](Link.png)
+La mejor forma de probar que todo ha ido bien es ejecutar el proyecto por primera vez. Abre el proyecto y al lado de los botones play-stop de Xcode selecciona el target _PuzzleTutorial Mac_ y _My Mac_ como dispositivo. Se abrirá una nueva ventana de OSX ejecutando el proyecto. 
+
+![](https://cloud.githubusercontent.com/assets/1536171/2887241/3df8152a-d4f8-11e3-88e1-6275c22af5ae.png)
 
 ##Personalizando el nuevo proyecto y creando nuevas clases
 
-Ahora podríamos arrancar ya directamente y empezar a escribir nuestro juego. Sin embargo a mí no me gusta tener un archivo que se llama _HelloWorldScene_ por ello, lo primero que vamos a hacer es renombrarlo a _GamePlayScene_. (Si tu karma no se siente afectado por éste hecho simplemente sáltate éste paso ;-). Del mismo modo, la clase _HelloWorld_ la renombraremos a _GamePlay_ y haremos todos los cambios necesarios en el código. Lo más sencillo es que uses la función de Xcode "Find & replace" y cambies todas las ocurrencias de 
-"HelloWorld" por "GamePlay". Una vez termines pulsa cmd+b para compilar comprobar que todo está en orden.
+Podríamos arrancar directamente y empezar a escribir nuestro juego. Sin embargo a mí no me gusta tener un archivo que se llama _HelloWorldScene_ en mi proyecto. Por ello, lo primero que vamos a hacer es renombrarlo a _GamePlayScene_ que es mucho más descriptivo. Si tu karma no se siente afectado por éste hecho simplemente sáltate éste paso ;-). 
 
-Nuestro puzzle estará formado por un _Layer_ que usaremos como "lienzo" y cuatro piezas que el usuario podrá mover hasta encajar en su lugar adecuado. De modo que éste es un buen momento para crear la clase  _Piece_ que heredará de Sprite. 
-Después agregaremos los recursos tanto para el lienzo como para las piezas. 
+Del mismo modo renombramos la clase  _HelloWorld_ a _GamePlay_ y haremos todos los cambios necesarios en el código. Lo más sencillo es que uses la función de Xcode "Find & replace" y cambies todas las ocurrencias de "HelloWorld" por "GamePlay". Una vez termines pulsa __cmd+b__ para compilar y comprobar que todo está en orden.
 
-En éste caso nosotros hemos creado un pequeño puzzle con el logotipo de Manduka que te puedes [descargar aquí](http://link-descarga). Pero puedes personalizarlo y usar las imágenes que más te gusten. 
+Nuestro puzzle estará formado por un _Layer_ que usaremos como "lienzo" y cuatro piezas que el usuario podrá mover hasta encajar en su lugar adecuado. Éste es un buen momento para crear la clase  _Piece_.
+
+___Piece___ será la clase que representará al objeto "pieza" de nuestro puzzle. Como su principal representación será una imagen la haremos heredar de la clase _Sprite_. Por el momento simplemente vete a Xcode y pulsa _Add new file_, selecciona en el tipo de fichero _C++ Class_  y dale a aceptar. Más tarde volveremos sobre éste archivo. 
+
+Ahora agregaremos los recursos tanto para el lienzo como para las piezas. 
+
+Nosotros hemos creado un pequeño puzzle con el logotipo de Manduka que te puedes [descargar aquí](http://link-descarga). Pero puedes personalizarlo y usar las imágenes que más te gusten. 
 
 El inspector de ficheros de Xcode debería quedar así:
-![Imagen003](Link.png)
+![](https://cloud.githubusercontent.com/assets/1536171/2887354/4d0e4a32-d4fa-11e3-9fae-1e1ab63dd6f1.png)
 
-##Ha llegado el momento de escribir código
+## Escribiendo el core del puzzle
 
 ### Borrar código innecesario
 Lo primero que vamos a hacer es borrar el código innecesario que cocos ha escrito para nosotros en la clase _GamePlay_. De modo que nuestro método _init_ quede como el siguiente: 
@@ -65,13 +68,17 @@ Lo primero que vamos a hacer es borrar el código innecesario que cocos ha escri
 		return true;
 	}
 
-También podemos borrar el método _menuCloseCallback_ (y su declaración en el header) ya que no lo vamos a utilizar.
+Las variables _visibleSize_ y _origin_ yo acostumbro a dejarlas porque casi siempre terminas usándolas. 
+
+El método _menuCloseCallback_ - y su declaración en el header- puedes fulminarlo directamente ya que no es necesario para éste tutorial. 
+
+_Nota: si prefieres conservar el botón de cerrar la aplicación recuerda no borrar el botón del método init._
 
 ### Añadir background y cambiar color de fondo
 
 Con la finalidad de que los usuarios sepan dónde colocar las piezas agregaremos una imagen a la escena que usaremos como background y la posicionaremos en el centro. 
 
-_Fíjate en que hemos marcado con el símbolo "+" las líneas que debes agregar_
+_Fíjate en que hemos marcado con el símbolo "+" las líneas que debes agregar al método init_
 
 	// on "init" you need to initialize your instance
 	bool GamePlay::init()
@@ -94,7 +101,7 @@ _Fíjate en que hemos marcado con el símbolo "+" las líneas que debes agregar_
 	    return true;
 	}
 	
-Una cosa, no necesaria, pero que también haremos para confort personal es cambiar el color de fondo de la escena. Para ello basta con cambiar la herencia de la clase de _Layer_ a _LayerColor_: 
+Una cosa que no es necesaria pero que también haremos para confort personal es cambiar el color de fondo de la escena. Para ello basta con cambiar la herencia de la clase de _Layer_ a _LayerColor_ en el fichero _GamePlayScene.h_: 
 	
 	class GamePlay : public cocos2d::LayerColor
 	
@@ -105,14 +112,19 @@ Y sustituiremos la llamada a init por otra que nos permita elegir un color:
 
 ### Agregando las coordenadas de las piezas
 
-Ahora vamos a ocuparnos del posicionamiento de las piezas. Si éste tutorial te gusta mucho y finalmente decides desarrollar un juego de verdad a partir de él deberás crear algún método sofisticado para posicionar las piezas en la pantalla. Estaría bien crear algún formato basado en .plist en el que creases un array de piezas con el nombre de la imagen y su posición en la pantalla. Ésto te permitiría agregar más puzzles (niveles) fácilmente. Sin embargo no es objeto de éste tutorial profundizar en éstos temas, por ello aquí simplemente escribiremos en el propio código la posición inicial y final de cada pieza. 
-_Si hay suficiente gente interesada prometemos hacer una segunda parte del tutorial explicando técnicas para crear niveles_
+Ahora vamos a ocuparnos del posicionamiento de las piezas en la pantalla. 
 
-A la hora de calcular la posición de las piezas ten en cuenta que debes recordar el anchor point que luego asignarás a tus sprites. En nuestro caso lo dejaremos por defecto - (0.5, 0.5) -  el centro exacto de las piezas. 
+Si éste tutorial te gusta mucho y finalmente decides desarrollar un juego de verdad a partir de él deberás crear algún método mínimamente sofisticado para posicionar las piezas en la pantalla. Por ejemplo: podrías crear algún formato basado en .plist en el que creases un array de piezas con el nombre de la imagen y su posición en la pantalla. Ésto te permitiría agregar más puzzles (niveles) fácilmente. 
+
+Sin embargo,  no es objeto de éste tutorial profundizar en éstos temas, por ello aquí simplemente hardcodearemos la posición inicial y final de cada pieza. 
+
+_(Si hay suficiente gente interesada desde [Manduka Games](http://www.mandukagames.com) estaremos encantados de hacer una segunda parte del tutorial explicando técnicas para crear niveles)_
+
+A la hora de calcular la posición de las piezas ten en cuenta que debes recordar el anchor point que luego asignarás a tus sprites. En nuestro caso lo dejaremos por defecto  (que es Vector2(0.5, 0.5) el centro exacto de las piezas). 
 
 #### Posición final
 
-A partir del bakcground y un poco de geometría básica calculamos la posición correcta de las piezas del puzle. 
+A partir del background y un poco de geometría básica vamos a calcular la posición correcta de las piezas del puzle. Básicamente lo que hacemos es crear un Vector2 - antiguamente conocido como _CCPoint_ - para representar el centro de cada pieza. 
 
     // Position of pieces
     Vector2 positionPieceTopLeft     = Vector2(background->getPositionX()- background->getContentSize().width/4,
@@ -130,7 +142,7 @@ A partir del bakcground y un poco de geometría básica calculamos la posición 
 
 ### La clase pieza
 
-__Previamente habíamos creado la clase __Piece__ ahora es el momento de darle forma. __
+_Previamente habíamos creado la clase __Piece__ ahora es el momento de retomarlo y darle forma._
 
 Empezaremos por la definición de la clase. Simplemente vete al fichero Piece.h y pega el siguiente código. No te preocupes si no entiendes algo, a continuación veremos su significado. 
 
@@ -155,11 +167,11 @@ Empezaremos por la definición de la clase. Simplemente vete al fichero Piece.h 
 	    bool currentLocationSuccess();
 	};
 
-Como vemos, nuestras piezas de puzle serán sprites. Definiremos las funciones _create_ e _init_ personalizadas para poder inicializar la pieza con la imagen deseada (que pasaremos como parámetro). 
+Como vemos, nuestras piezas de puzle serán sprites. Definiremos las funciones _create_ e _init_ personalizadas para poder inicializar la pieza con la imagen deseada, la cual pasaremos como parámetro. 
 
 Hemos definido dos variables de instancia __actived_ y __targetPosition_:
 
-*  ___actived__  nos sirve para identificar si la pieza está activa en un momento determinado, es decir, si el usuario la está tocando en un preciso momento. Usaremos ésta variable para saber cuando debemos dar feedback al usuario. Por ejemplo si el usuario está tocando la pieza podemos hacerla un poco más grande o cambiarla de color. 
+*  ___actived__  nos sirve para identificar si la pieza está activa en un momento determinado, es decir, si el usuario la está tocando en un preciso momento. Usaremos ésta variable para saber cuando debemos dar feedback al usuario. Por ejemplo, si el usuario está tocando la pieza podemos hacerla un poco más grande o cambiarla de color. 
 *   En ___targetPosition__  almacenaremos el punto exacto en el cual consideramos que la pieza está bien colocada. Fíjate que también hemos definido un setter público para ésta variable. Podríamos haber definido directamente la variable como pública. Pero cada vez que haces eso un gatito muere en el mundo.
 
 Por último hemos definido un método al que le podemos preguntar si la posición de la pieza en ese preciso instante es la posición final que debería tener. Nos será muy útil cuando implementemos la lógica de las piezas. 
@@ -168,7 +180,9 @@ Por último hemos definido un método al que le podemos preguntar si la posició
 
 Vamos a empezar la implementación por los métodos básicos: *create* e *init*. 
 
-Éstos dos métodos son un patrón estandar para crear clases en Cocos2d-x. Si eres un veterano de Cocos2d-x probablemente ya te los sepas de memoria y si no pronto te los aprenderás porque los escribirás un montón de veces. Si no sabes lo que significan o simplemente sientes curiosidad por ellos te recomendamos que vayas a la documentación oficial de [Cocos2d-x](http://www.cocos2d-x.org/wiki) dónde hay una sección dedicada a la gestión de memoria y el patrón retain /release.
+Éstos dos métodos son un patrón estandar para crear clases en Cocos2d-x. Si eres un veterano de Cocos2d-x probablemente ya te los sepas de memoria y si no pronto te los aprenderás porque los escribirás un montón de veces. Si no sabes lo que significan o simplemente sientes curiosidad por ellos te recomendamos que vayas a la documentación oficial de [Cocos2d-x](http://www.cocos2d-x.org/wiki). Allí hay una sección dedicada a la gestión de memoria y el patrón retain /release heredado de Objetive-C.
+
+Agrega el siguiente código a la implementación de la clase Piece: 
 
 	Piece* Piece::create(const std::string &filename)
 	{
@@ -200,15 +214,22 @@ Vamos a empezar la implementación por los métodos básicos: *create* e *init*.
 	{
 	    this->_targetPosition = targetPosition;
 	}
-Fíjate que también hemos aprovechado para crear el setter de __targetPosition_. Llegados a este punto simplemente comenta los métodos que todavía no hemos implementado y cmd+r para compilar y correr nuestro juego. Así nos aseguraremos de que todo está en orden. 
 
-Tal como dicen en los programas de cocina. Retiramos del fuego y reservamos durante unos minutos. 
+_Fíjate que también hemos aprovechado para crear el setter de __targetPosition_._
+
+ Llegados a este punto simplemente comenta los métodos que todavía no hemos implementado y pulsa __cmd+r__ para compilar y correr el proyecto. Así nos aseguraremos de que todo está en orden. 
+
+Como dicen en los programas de cocina. Retiramos del fuego y reservamos durante unos minutos. 
 
 ### Agregando las piezas a la escena
 
-Podríamos agregar cada pieza del puzzle una tras otra. Sin embargo aprovecharemos este punto para hacer un breve inciso y ver también por encima la nueva clase _Vector_ que sustituye a _CCArray_. 
+_Podríamos agregar cada pieza del puzzle una tras otra centrándonos en la simplicidad del tutorial. Pero aprovecharemos este punto para hacer un breve inciso y ver también por encima la nueva clase Vector que sustituye a CCArray ._
 
-Si volvemos a nuestra clase GamePlay veremos que habíamos agregado la posición de de las piezas. Teníamos cuatro variables almacenando posiciones de la pantalla. Ahora vamos a crear las piezas y asignar cada posición a una pieza distinta y para ello vamos a utilizar un bucle for. Así solo escribiremos el código una vez. Para ello necesitamos previamente introducir las posiciones (Vector2) en un array. Añadimos las siguientes líneas al método init de GamePlay
+Volvemos a nuestra clase GamePlay justo donde estábamos agregando la posición de de las piezas. Hasta ahora teníamos cuatro variables almacenando posiciones de pantalla. V
+
+Vamos a crear las piezas y asignar cada posición a una pieza distinta y para escribir el código solo una vez utilizaremos un bucle _for_. 
+
+Introducimos las posiciones __Vector2__ en un array. 
 
 	Vector2 positionsArray[4];
 	positionsArray[0] = positionPieceTopLeft;
@@ -226,18 +247,20 @@ Y a continuación simplemente creamos y agregamos una pieza por cada posición o
         this->addChild(piece);
     }
 
-En éste momento ya podemos compilar y ejecutar y efectivamente nuestras piezas se agregarán en el punto (0,0). 
+En éste momento ya podemos compilar y ejecutar y efectivamente nuestras piezas se agregarán en el punto (0,0) con el anchor point (0.5, 0.5). 
 
-![Imagen003](Link.png)
+![](https://cloud.githubusercontent.com/assets/1536171/2888181/9ef781ea-d506-11e3-97fe-d3be72fb01fe.png)
 
-A continuación agregaremos interacción a las piezas y la capacidad de moverse. Pero para ello primero debemos crear una referencia. Y qué mejor que un nuevo y flamante _Vector_. La clase CCArray ha quedado obsoleta. La clase Vector está basada en la librería standard de C++ y tiene algunas ventajas respecto a CCArray. Puedes encontrar una buena descripción al respecto en [éste artículo](http://dev.bunnyhero.org/2014/01/cocos2d-x-30-beta-the-new-vector-class/) de Wayne A.Lee. (O puedes simplemente fiarte y seguir con el tutorial). 
+A continuación agregaremos interacción a las piezas y la capacidad de moverse. Pero para ello primero debemos crear guardar una referencia a las piezas en nuestra instancia. ¿Qué mejor para ello que un nuevo y flamante _Vector_?
 
-Creamos una nueva variable de instancia en GamePlay.h. La marcaremos como privada ya que nadie debería tener acceso a ella más que los propios objetos de la clase. 
+Por si eres veterano de Cocos2d-x en su versión 2 habrás notado que la clase _CCArray_ basada en *NSArray* de *Foundation* (Objective-C) ha quedado obsoleta. A partir de ahora deberás usar la clase *Vector* que está basada en la librería standard de C++ y tiene algunas ventajas respecto a *CCArray*. Puedes encontrar una buena descripción al respecto así como explicaciones sobre la nueva sintaxis en [éste artículo](http://dev.bunnyhero.org/2014/01/cocos2d-x-30-beta-the-new-vector-class/) de Wayne A.Lee. (O puedes simplemente fiarte y seguir con el tutorial). 
+
+Creamos una nueva variable de instancia en GamePlay.h y la marcaremos como privada ya que nadie debería tener acceso a ella más que los propios objetos de la clase. 
 
 	private:
 	    Vector<Piece *> puzzlePieces;
         
-Y ahora agregaremos la línea marcada con el carácter + 
+Y ahora agregaremos la línea marcada con el carácter "+" al bucle que habíamos creado previamente.
 
 	for (int i = 0; i < 4; i++)
 	{
@@ -250,9 +273,9 @@ Y ahora agregaremos la línea marcada con el carácter +
 
 Con ésto ya tenemos referenciadas las piezas del puzzle, de modo que ya podemos volver a la clase Piece y agregar interacción. 
 
-### Agregando Interacción
+## Interaccionando con nuestro puzle
 
-Cocos2d-x v3 ha introducido algunas mejoras en la gestión de eventos. Te recomendamos encarecidamente que te revises el siguiente apartado de la documentación oficial sobre [event handling](http://www.cocos2d-x.org/docs/manual/framework/native/input/event-dispatcher/en). 
+*Cocos2d-x v3 ha introducido algunas mejoras en la gestión de eventos. Te recomendamos encarecidamente que te revises el siguiente apartado de la documentación oficial sobre [manejo de eventos](http://www.cocos2d-x.org/docs/manual/framework/native/input/event-dispatcher/en). *
 
 Lo primero que haremos será declarar los callbacks en Piece.h: 
 
@@ -261,7 +284,7 @@ Lo primero que haremos será declarar los callbacks en Piece.h:
 	void onTouchEnded(Touch*, Event*);
 	void onTouchCancel(Touch*, Event*);
 	
-Yo los he nombrado de ésta manera para mantener un poco el standard, pero podrían llamarse de cualquier otra forma (de hecho, incluso podríamos declararlos en línea) lo único importante es que el tipo de retorno y los parámetros coincidan. 
+Yo los he nombrado de ésta manera para mantener un poco el estándar, pero podrían llamarse de cualquier otra forma (de hecho en cocos 2dx v3, incluso podríamos declararlos en línea). Lo único importante es que el tipo de retorno y los parámetros coincidan. 
 
 En la implementación del método init agregaremos el siguiente código. Que lo único que hace es registrar un nuevo EventListener para los _touchs_ y decirle cuales son los callbacks que debe ejecutar. 
 
@@ -304,12 +327,14 @@ Si el usuario está pulsando la pieza y se mueve, la pieza también debe moverse
 	    }
 	}
 	
-**Es el momento de compilar y ejecutar**
-![Imagen](http://enlace)
+**Compilar y ejecutar tú debes**
+![](https://cloud.githubusercontent.com/assets/1536171/2888312/1612c0b2-d509-11e3-926c-5730c7d97b25.png)
 
 Si pulsas sobre una pieza y arrastras, además de la emoción de ver a la pieza moviéndose, te habrás dado cuenta de que... ¡No hay rastro de las otras tres piezas! 
 
-Tranquilo, en realidad sí que están en la pantalla, lo que sucede es que estás al pulsar sobre una pieza estás arrastrándolas todas ya que el touch se propaga hacia abajo y afecta a todos los _listeners_ que están en la misma posición. Para evitarlo, haremos la siguiente modificación en el método onTouchBegin. Ahora el touch solo se propagará si estamos pulsando fuera de la pieza. Cuando pulsemos dentro el touch será absorvido por la pieza que estamos pulsando y no tendrá efectos sobre las capas inferiores.  
+Tranquilo, en realidad sí que están en la pantalla, lo que sucede es que al pulsar sobre una pieza estás arrastrándolas todas ya que el touch se está propagando hacia abajo y afectando a todos los _listeners_ de todas las piezas. 
+
+Para evitarlo, haremos la siguiente modificación en el método onTouchBegin. 
 
 	bool Piece::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event)
 	{
@@ -326,17 +351,21 @@ Tranquilo, en realidad sí que están en la pantalla, lo que sucede es que está
 	    return true;
 	}
 	
-**Vuelve a compilar y ejecutar** y ahora todo debería ir bien. 
-![Imagen](http://enlace)
+Ahora el touch solo se propagará si estamos pulsando fuera de la pieza. Cuando pulsemos dentro el touch será absorvido por la pieza que estamos pulsando y no tendrá efectos sobre las capas inferiores.  
+
+**Vuelve a compilar y ejecutar**. Ahora todo debería ir bien y deberías poder mover las piezas por separado. 
+![](https://cloud.githubusercontent.com/assets/1536171/2888334/71ec6500-d509-11e3-809f-1cb48e4f4602.png)
 
 ### ¡Un poco de magia!
 
-Estamos muy orgullosos de que hayas llegado hasta aquí. ¡Eres un tipo duro! 
-El mundo necesita más gente como tú. Así que no desfallezcas ahora porque estamos llegando al final. 
+Estamos muy orgullosos de que hayas llegado hasta aquí. ¡Eres un tipo duro! Está claro que el mundo necesita más gente como tú, así que no desfallezcas ahora porque estamos llegando al final. 
 
-Recapitulemos: ya tenemos nuestro tablero, las piezas de nuestro puzle, las posiciones en las que deben ir esas piezas, hemos agregado eventos que permiten moverlas y nuestro puzzle ya se puede montar. Pero queremos que se comporte como un juego de verdad. Así que vamos a agregar un poco feedback para proporcionar una mejor experiencia de usuario. 
+**Recapitulemos: **
+Ya tenemos nuestro tablero, las piezas de nuestro puzle, las posiciones en las que deben ir esas piezas, hemos agregado eventos que permiten moverlas y nuestro puzzle ya se puede montar.
 
-Vamos a hacer que cuando el usuario pulsa sobre una pieza y la activa ésta crezca un poco. Para ello nos vamos a valer del método _setActive_ que vamos a modificar de la siguiente manera: 
+Pero queremos que se comporte como un juego de verdad. Así que vamos a agregar un poco feedback para proporcionar una mejor experiencia al usuario. 
+
+Vamos a hacer que cuando el usuario pulsa sobre una pieza y la activa ésta reaccione escalándose un poco. Para ello nos vamos a valer del método _setActive_ que vamos a modificar de la siguiente manera: 
 
 	void Piece::setActived(bool active)
 	{
@@ -353,7 +382,7 @@ Vamos a hacer que cuando el usuario pulsa sobre una pieza y la activa ésta crez
 	    this->runAction(scale);
 	}
 
-Así cada vez que tocamos una pieza ésta reaccionará creciendo un 10% y cada vez que la soltamos volverá a su tamaño original. Siéntete libre para compilar y probar a tu antojo. 
+De éste modo cada vez que tocamos una pieza ésta reaccionará creciendo un 10% y cada vez que la soltamos volverá a su tamaño original. Siéntete libre para compilar y probar a tu antojo. 
 
 Por último... 
 
@@ -361,7 +390,7 @@ Por último...
 
  **bool currentLocationSuccess**
 
-Ha llegado el momento de descomentarlo. Lo que vamos a hacer ahora es que cuando el usuario libera una pieza, si esta está muy cerca de su destino final nosotros la moveremos al punto exacto. Para ello primero implementamos el método que compruebe si está en el lugar adecuado: 
+Ha llegado el momento de descomentarlo. Lo que vamos a hacer ahora es que cuando el usuario libera una pieza, si ésta está muy cerca de su destino final nosotros la moveremos al punto exacto. Para ello primero implementamos el método que compruebe si está en el lugar adecuado: 
 
 	bool Piece::currentLocationSuccess()
 	{
@@ -389,21 +418,26 @@ y lanzamos este método desde el final del touch
 	    this->currentLocationSuccess();
 	}
 	
-Te habrás fijado en que hacemos uso de la constante "LOCATION_ACCURACY". Ésta constante, cómo podrás deducir del código es la precisión con la que queremos detectar si las piezas están en la posición correcta. En el tutorial actual y con las imágenes de muestra "100" ha resultado ser un valor aceptable, pero puedes modificarlo a tu antojo. Cuanto más pequeño más esfuerzo deberá hacer el usuario para colocar las piezas en el sitio correcto. 
+Te habrás fijado en que hacemos uso de la constante "LOCATION_ACCURACY" que previamente deberás definir en el header. 
+
+	#define LOCATION_ACCURACY 100
+
+Ésta constante, cómo podrás deducir del código es la precisión con la que queremos detectar si las piezas están en la posición correcta. En el tutorial actual y con el tamaño de las imágenes de muestra "100" ha resultado ser un valor aceptable, pero puedes modificarlo a tu antojo. Cuanto más pequeño más esfuerzo deberá hacer el usuario para colocar las piezas en el sitio correcto. 
+
+![](https://cloud.githubusercontent.com/assets/1536171/2888391/33fbb59c-d50a-11e3-989a-4f122e777498.png)
 
 ¡Y eso es todo! Has completado el tutorial. 
 
 ¿Y ahora qué?
 
-## Posibles mejoras 
+## Mejorando nuestro puzzle
 
-Te proponemos una lista de mejoras que puedes realizar para practicar: 
+Te proponemos una lista de mejoras que puedes realizar para practicar. Si te animas te agradeceríamos que nos enviases tus mejoras por correo a developer@mandukagames.com o bien haciendo un pull request en [github](https://github.com/MandukaGames/tutorial-puzzle) y así podríamos agregarlas al tutorial para que otros desarrolladores puedan seguir aprendiendo.
 
 * Colocar las piezas aleatoriamente en la pantalla para que el usuario tenga que buscarlas. 
 * Un pop up felicitando al usuario cuando las piezas han sido colocadas en su lugar correspondiente. 
-* Un botón de reset. 
-* Un contador que puntúe al usuario según el tiempo que ha necesitado para resolver el puzzle. 
+* Un botón de reset que desordene aleatoriamente las piezas por la pantalla. 
+* Un contador que puntúe al usuario según el tiempo que ha necesitado para resolver el puzzle y lo penalice si ha colocado alguna pieza en un lugar incorrecto.
+* Un menú inicial de juego con la opción Play y opciones para seleccionar el número de piezas. 
 
-Si te animas te agradeceríamos que nos enviases tus mejoras por correo a developer@mandukagames.com y así podríamos agregarlas al tutorial. 
-
-That´s all. 
+Esperamos que te haya gustado! No olvides dejarnos tus impresiones y visitarnos en [mandukagames.com](www.mandukagames.com).

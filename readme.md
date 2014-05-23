@@ -1,6 +1,6 @@
 ##Available in spanish. 
 
-There is also an spansih version of this tutorial in: [Manduka Games](http://www.mandukagames.com) 
+We have also an spansih version of this tutorial [Here](https://github.com/MandukaGames/tutorial-puzzle/blob/master/readme_es.md) 
 
 ##About Manduka Games
 [Manduka Games](http://www.mandukagames.com) it´s a mid size videogames studio based in Barcelona. Since our beginnings we have made an effort to open some of our source code and be an active part of the community. We are proud to say that Open Source is in our DNA. So, in that way, this tutorial is distributted under MIT license. We encourage all who want to contribute to send us new variations or extensions from this tutorial. We are commited to include and share every new material we receive to improve the tutorial. 

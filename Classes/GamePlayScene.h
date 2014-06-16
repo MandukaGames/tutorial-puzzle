@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "Piece.h"
+#include "ResourceConstants.h"
 
 class GamePlay : public cocos2d::LayerColor
 {

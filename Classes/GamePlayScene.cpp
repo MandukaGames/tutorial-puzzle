@@ -30,7 +30,7 @@ bool GamePlay::init()
     Vector2 origin = Director::getInstance()->getVisibleOrigin();
 
     // Add Background shape
-    Sprite * background = Sprite::create("background.png");
+    Sprite * background = Sprite::create(kPuzzleBackground);
     background->setPosition(Vector2(this->getContentSize().width/2, this->getContentSize().height/2));
     this->addChild(background);
     
@@ -59,12 +59,27 @@ bool GamePlay::init()
     for (int i = 0; i < 4; i++)
     {
         // Add piece
-        std::cout<<"piece_0"+std::to_string(i)+".png";
-        Piece * piece = Piece::create("piece_0"+std::to_string(i)+".png");
+    	Piece * piece = NULL;
+
+#if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+
+    	// - Create string with std::to_string from C++11 compiler
+    	std::cout<<"piece_0"+std::to_string(i)+".png";
+        piece = Piece::create("piece_0"+std::to_string(i)+".png");
+
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
+
+        // - In Android, use std::ostringstream to build string with integers
+        std::ostringstream os;
+        os << "puzzle/piece_0" << i << ".png";
+        piece = Piece::create(os.str());
+
+#endif
+
         piece->setTargetPosition(positionsArray[i]);
         this->puzzlePieces.pushBack(piece);
         this->addChild(piece);
     }
-    
+
     return true;
 }

@@ -44,22 +44,17 @@
 		<link>
 			<name>Classes</name>
 			<type>2</type>
-			<locationURI>COCOS2DX/projects/PuzzleTutorial/Classes</locationURI>
+			<location>/Users/SlashGame/Documents/workspace/MandukaGames/tutorial-puzzle/Classes</location>
 		</link>
 		<link>
-			<name>cocos2dx</name>
+			<name>cocos2d-x</name>
 			<type>2</type>
-			<locationURI>COCOS2DX/cocos2dx</locationURI>
+			<location>/Users/SlashGame/Documents/workspace/MandukaGames/tutorial-puzzle/cocos2d/cocos</location>
 		</link>
 		<link>
-			<name>extensions</name>
+			<name>cocos2d-xsrc</name>
 			<type>2</type>
-			<locationURI>COCOS2DX/extensions</locationURI>
-		</link>
-		<link>
-			<name>scripting</name>
-			<type>2</type>
-			<locationURI>COCOS2DX/scripting</locationURI>
+			<location>/Users/SlashGame/Documents/workspace/MandukaGames/tutorial-puzzle/cocos2d/cocos/2d/platform/android/java/src</location>
 		</link>
 	</linkedResources>
 </projectDescription>

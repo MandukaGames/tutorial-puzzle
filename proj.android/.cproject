@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?fileVersion 4.0.0?><cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
+	<storageModule moduleId="org.eclipse.cdt.core.settings">
+		<cconfiguration id="0.186672526">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="0.186672526" moduleId="org.eclipse.cdt.core.settings" name="Default">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.VCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildProperties="" description="" id="0.186672526" name="Default" parent="org.eclipse.cdt.build.core.prefbase.cfg">
+					<folderInfo id="0.186672526." name="/" resourcePath="">
+						<toolChain id="org.eclipse.cdt.build.core.prefbase.toolchain.1483835870" name="No ToolChain" resourceTypeBasedDiscovery="false" superClass="org.eclipse.cdt.build.core.prefbase.toolchain">
+							<targetPlatform id="org.eclipse.cdt.build.core.prefbase.toolchain.1483835870.619605022" name=""/>
+							<builder command="make" id="org.eclipse.cdt.build.core.settings.default.builder.448161903" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Gnu Make Builder" superClass="org.eclipse.cdt.build.core.settings.default.builder"/>
+							<tool id="org.eclipse.cdt.build.core.settings.holder.libs.59229698" name="holder for library settings" superClass="org.eclipse.cdt.build.core.settings.holder.libs"/>
+							<tool id="org.eclipse.cdt.build.core.settings.holder.1009809401" name="Assembly" superClass="org.eclipse.cdt.build.core.settings.holder">
+								<option id="org.eclipse.cdt.build.core.settings.holder.symbols.979331989" name="Symbols" superClass="org.eclipse.cdt.build.core.settings.holder.symbols" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="ANDROID"/>
+									<listOptionValue builtIn="false" value="CC_PLATFORM_ANDROID"/>
+								</option>
+								<option id="org.eclipse.cdt.build.core.settings.holder.incpaths.1887703027" name="Include Paths" superClass="org.eclipse.cdt.build.core.settings.holder.incpaths" valueType="includePath">
+									<listOptionValue builtIn="false" value="/Volumes/MANEL/android-sdk-mac_x86/android-ndk-r9b"/>
+									<listOptionValue builtIn="false" value="/Users/SlashGame/Documents/workspace/MandukaGames/matasuegrapp/cocos2d"/>
+									<listOptionValue builtIn="false" value="/Users/SlashGame/Documents/workspace/MandukaGames/matasuegrapp/cocos2d/cocos/2d"/>
+									<listOptionValue builtIn="false" value="/Users/SlashGame/Documents/workspace/MandukaGames/matasuegrapp/cocos2d/cocos"/>
+									<listOptionValue builtIn="false" value="/Volumes/MANEL/android-sdk-mac_x86/android-ndk-r9b/platforms/android-14/arch-arm/usr/include"/>
+									<listOptionValue builtIn="false" value="/Users/SlashGame/Documents/workspace/MandukaGames/matasuegrapp/cocos2d/cocos/2d/platform/android"/>
+									<listOptionValue builtIn="false" value="/Volumes/MANEL/android-sdk-mac_x86/android-ndk-r9b/sources/cxx-stl/stlport/stlport"/>
+									<listOptionValue builtIn="false" value="/Users/SlashGame/Documents/workspace/MandukaGames/matasuegrapp/proj.android/Default/C:/Users/lluis/Desktop/Android/android-sdk/android-ndk-r9d"/>
+									<listOptionValue builtIn="false" value="/Users/SlashGame/Documents/workspace/MandukaGames/matasuegrapp/proj.android/Default/C:/Users/lluis/Desktop/Android/android-sdk/android-ndk-r9d/sources/cxx-stl/stlport/stlport"/>
+									<listOptionValue builtIn="false" value="/Users/SlashGame/Documents/workspace/MandukaGames/matasuegrapp/proj.android/Default/C:/Users/lluis/Documents/MandukaGames/MatasuegrApp/cocos2d"/>
+									<listOptionValue builtIn="false" value="/Users/SlashGame/Documents/workspace/MandukaGames/matasuegrapp/proj.android/Default/C:/Users/lluis/Documents/MandukaGames/MatasuegrApp/cocos2d/cocos/2d"/>
+									<listOptionValue builtIn="false" value="/Users/SlashGame/Documents/workspace/MandukaGames/matasuegrapp/proj.android/Default/C:/Users/lluis/Documents/MandukaGames/MatasuegrApp/cocos2d/cocos"/>
+									<listOptionValue builtIn="false" value="/Users/SlashGame/Documents/workspace/MandukaGames/matasuegrapp/proj.android/Default/C:/Users/lluis/Documents/MandukaGames/MatasuegrApp/cocos2d/cocos/2d/platform/android"/>
+									<listOptionValue builtIn="false" value="/Users/SlashGame/Documents/workspace/MandukaGames/matasuegrapp/proj.android/Default/C:/Users/lluis/Documents/MandukaGames/MatasuegrApp/MDK/include"/>
+									<listOptionValue builtIn="false" value="/Users/SlashGame/Documents/workspace/MandukaGames/matasuegrapp/proj.android/Default/C:/Users/lluis/Desktop/Android/android-sdk/android-ndk-r9d/platforms/android-14/arch-arm/usr/include"/>
+								</option>
+								<inputType id="org.eclipse.cdt.build.core.settings.holder.inType.866537326" languageId="org.eclipse.cdt.core.assembly" languageName="Assembly" sourceContentType="org.eclipse.cdt.core.asmSource" superClass="org.eclipse.cdt.build.core.settings.holder.inType"/>
+							</tool>
+							<tool id="org.eclipse.cdt.build.core.settings.holder.547095079" name="GNU C++" superClass="org.eclipse.cdt.build.core.settings.holder">
+								<option id="org.eclipse.cdt.build.core.settings.holder.symbols.1686787247" name="Symbols" superClass="org.eclipse.cdt.build.core.settings.holder.symbols" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="ANDROID"/>
+									<listOptionValue builtIn="false" value="CC_PLATFORM_ANDROID"/>
+								</option>
+								<option id="org.eclipse.cdt.build.core.settings.holder.incpaths.683104178" name="Include Paths" superClass="org.eclipse.cdt.build.core.settings.holder.incpaths" valueType="includePath">
+									<listOptionValue builtIn="false" value="/Volumes/MANEL/android-sdk-mac_x86/android-ndk-r9b"/>
+									<listOptionValue builtIn="false" value="/Users/SlashGame/Documents/workspace/MandukaGames/matasuegrapp/cocos2d"/>
+									<listOptionValue builtIn="false" value="/Users/SlashGame/Documents/workspace/MandukaGames/matasuegrapp/cocos2d/cocos/2d"/>
+									<listOptionValue builtIn="false" value="/Users/SlashGame/Documents/workspace/MandukaGames/matasuegrapp/cocos2d/cocos"/>
+									<listOptionValue builtIn="false" value="/Volumes/MANEL/android-sdk-mac_x86/android-ndk-r9b/platforms/android-14/arch-arm/usr/include"/>
+									<listOptionValue builtIn="false" value="/Users/SlashGame/Documents/workspace/MandukaGames/matasuegrapp/cocos2d/cocos/2d/platform/android"/>
+									<listOptionValue builtIn="false" value="/Volumes/MANEL/android-sdk-mac_x86/android-ndk-r9b/sources/cxx-stl/stlport/stlport"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../cocos2d/cocos/2d&quot;"/>
+								</option>
+								<inputType id="org.eclipse.cdt.build.core.settings.holder.inType.1976642074" languageId="org.eclipse.cdt.core.g++" languageName="GNU C++" sourceContentType="org.eclipse.cdt.core.cxxSource,org.eclipse.cdt.core.cxxHeader" superClass="org.eclipse.cdt.build.core.settings.holder.inType"/>
+							</tool>
+							<tool id="org.eclipse.cdt.build.core.settings.holder.980887598" name="GNU C" superClass="org.eclipse.cdt.build.core.settings.holder">
+								<option id="org.eclipse.cdt.build.core.settings.holder.incpaths.1496917771" name="Include Paths" superClass="org.eclipse.cdt.build.core.settings.holder.incpaths" valueType="includePath">
+									<listOptionValue builtIn="false" value="/Volumes/MANEL/android-sdk-mac_x86/android-ndk-r9b"/>
+									<listOptionValue builtIn="false" value="/Users/SlashGame/Documents/workspace/MandukaGames/matasuegrapp/cocos2d"/>
+									<listOptionValue builtIn="false" value="/Users/SlashGame/Documents/workspace/MandukaGames/matasuegrapp/cocos2d/cocos/2d"/>
+									<listOptionValue builtIn="false" value="/Users/SlashGame/Documents/workspace/MandukaGames/matasuegrapp/cocos2d/cocos"/>
+									<listOptionValue builtIn="false" value="/Volumes/MANEL/android-sdk-mac_x86/android-ndk-r9b/platforms/android-14/arch-arm/usr/include"/>
+									<listOptionValue builtIn="false" value="/Users/SlashGame/Documents/workspace/MandukaGames/matasuegrapp/cocos2d/cocos/2d/platform/android"/>
+									<listOptionValue builtIn="false" value="/Volumes/MANEL/android-sdk-mac_x86/android-ndk-r9b/sources/cxx-stl/stlport/stlport"/>
+									<listOptionValue builtIn="false" value="/Users/SlashGame/Documents/workspace/MandukaGames/matasuegrapp/proj.android/Default/C:/Users/lluis/Desktop/Android/android-sdk/android-ndk-r9d"/>
+									<listOptionValue builtIn="false" value="/Users/SlashGame/Documents/workspace/MandukaGames/matasuegrapp/proj.android/Default/C:/Users/lluis/Desktop/Android/android-sdk/android-ndk-r9d/sources/cxx-stl/stlport/stlport"/>
+									<listOptionValue builtIn="false" value="/Users/SlashGame/Documents/workspace/MandukaGames/matasuegrapp/proj.android/Default/C:/Users/lluis/Documents/MandukaGames/MatasuegrApp/cocos2d"/>
+									<listOptionValue builtIn="false" value="/Users/SlashGame/Documents/workspace/MandukaGames/matasuegrapp/proj.android/Default/C:/Users/lluis/Documents/MandukaGames/MatasuegrApp/cocos2d/cocos/2d"/>
+									<listOptionValue builtIn="false" value="/Users/SlashGame/Documents/workspace/MandukaGames/matasuegrapp/proj.android/Default/C:/Users/lluis/Documents/MandukaGames/MatasuegrApp/cocos2d/cocos"/>
+									<listOptionValue builtIn="false" value="/Users/SlashGame/Documents/workspace/MandukaGames/matasuegrapp/proj.android/Default/C:/Users/lluis/Documents/MandukaGames/MatasuegrApp/cocos2d/cocos/2d/platform/android"/>
+									<listOptionValue builtIn="false" value="/Users/SlashGame/Documents/workspace/MandukaGames/matasuegrapp/proj.android/Default/C:/Users/lluis/Documents/MandukaGames/MatasuegrApp/MDK/include"/>
+									<listOptionValue builtIn="false" value="/Users/SlashGame/Documents/workspace/MandukaGames/matasuegrapp/proj.android/Default/C:/Users/lluis/Desktop/Android/android-sdk/android-ndk-r9d/platforms/android-14/arch-arm/usr/include"/>
+								</option>
+								<option id="org.eclipse.cdt.build.core.settings.holder.symbols.1112090749" name="Symbols" superClass="org.eclipse.cdt.build.core.settings.holder.symbols" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="ANDROID"/>
+								</option>
+								<inputType id="org.eclipse.cdt.build.core.settings.holder.inType.577050164" languageId="org.eclipse.cdt.core.gcc" languageName="GNU C" sourceContentType="org.eclipse.cdt.core.cSource,org.eclipse.cdt.core.cHeader" superClass="org.eclipse.cdt.build.core.settings.holder.inType"/>
+							</tool>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry excluding="cocos2d-x|Classes" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Classes"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="cocos2d-x"/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+	</storageModule>
+	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+		<project id="PuzzleTutorial.null.1574080627" name="PuzzleTutorial"/>
+	</storageModule>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		<scannerConfigBuildInfo instanceId="0.186672526">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="refreshScope" versionNumber="2">
+		<configuration configurationName="Default">
+			<resource resourceType="PROJECT" workspacePath="/PuzzleTutorial"/>
+		</configuration>
+	</storageModule>
+</cproject>

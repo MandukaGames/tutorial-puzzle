@@ -9,9 +9,12 @@ LOCAL_MODULE_FILENAME := libcocos2dcpp
 LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/AppDelegate.cpp \
                    ../../Classes/GamePlayScene.cpp \
+                   ../../Classes/InitialMenuScene.cpp \
+                   ../../Classes/PauseMenu/MDPauseMenu.cpp \
                    ../../Classes/Piece.cpp
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/PauseMenu
 
 LOCAL_WHOLE_STATIC_LIBRARIES := cocos2dx_static
 LOCAL_WHOLE_STATIC_LIBRARIES += cocosdenshion_static

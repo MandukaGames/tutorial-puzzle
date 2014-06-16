@@ -29,6 +29,8 @@ bool GamePlay::init()
     
     Vector2 origin = Director::getInstance()->getVisibleOrigin();
 
+    setPosition(origin);
+
     // Add Background shape
     Sprite * background = Sprite::create(kPuzzleBackground);
     background->setPosition(Vector2(this->getContentSize().width/2, this->getContentSize().height/2));
@@ -81,5 +83,71 @@ bool GamePlay::init()
         this->addChild(piece);
     }
 
+    // - Append menu
+    appendBackAndPauseMenu();
+
     return true;
+}
+
+void GamePlay::appendBackAndPauseMenu() {
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+
+    // - Back button
+    MenuItemImage *btnBack = MenuItemImage::create(kButtonBack, kButtonBackPressed, CC_CALLBACK_1(GamePlay::btnBackCallback, this));
+    btnBack->setPosition(Vector2(100, visibleSize.height - 100));
+
+    // - Pause button
+    MenuItemImage *btnPause = MenuItemImage::create(kButtonPause, kButtonPausePressed, CC_CALLBACK_1(GamePlay::btnPauseCallback, this));
+    btnPause->setAnchorPoint(Vector2(1, 0.5));
+    btnPause->setPosition(Vector2(visibleSize.width - 100, visibleSize.height - 100));
+
+    menu = Menu::create(btnBack,btnPause, NULL);
+    menu->setAnchorPoint(Vector2(0.5, 0.5));
+    menu->ignoreAnchorPointForPosition(false);
+    menu->setPosition(Vector2(visibleSize.width/2, visibleSize.height/2));
+    menu->setContentSize(visibleSize);
+    addChild(menu);
+}
+
+void GamePlay::btnBackCallback(Ref* sender) {
+	// - Go back to initial menu
+    auto scene = InitialMenuScene::createScene();
+    Director::getInstance()->replaceScene(scene);
+}
+
+void GamePlay::btnPauseCallback(Ref* sender) {
+    pauseSchedulerAndActions();
+
+    MDPauseMenu *pauseMenu = MDPauseMenu::create(this);
+    addChild(pauseMenu, 5);
+}
+
+/**
+ *
+ * PAUSE MENU INTERFACE
+ *
+ */
+
+void GamePlay::shouldPauseGame()
+{
+    menu->setEnabled(false);
+}
+
+void GamePlay::shouldResumeGame()
+{
+    // - Enable gameplay menu buttons
+    menu->setEnabled(true);
+}
+
+void GamePlay::shouldQuitGame()
+{
+	// - Go back to initial menu
+    auto scene = InitialMenuScene::createScene();
+    Director::getInstance()->replaceScene(scene);
+}
+
+void GamePlay::shouldRetryGame()
+{
+    // - Enable gameplay menu buttons
+    menu->setEnabled(true);
 }
